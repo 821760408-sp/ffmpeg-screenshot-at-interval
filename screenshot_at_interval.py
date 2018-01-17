@@ -5,7 +5,7 @@ import datetime
 import subprocess
 import time
 
-parser = argparse.ArgumentParser(description='Script to extract either a {n} number of screenshots from a video, or extract an indefinite amount of screenshots at an interval of {i} seconds.')
+parser = argparse.ArgumentParser(description='Script to extract either a number of {n} screenshots from a video, or extract an indefinite amount of screenshots at an interval of {i} seconds.')
 group = parser.add_mutually_exclusive_group()
 group.add_argument('-n', dest='num', type=int, help='specify the number of screenshots to extract from video.')
 group.add_argument('-s', dest='interval', type=int, help='specify the interval of screenshots to extract from video.')
@@ -31,7 +31,6 @@ if __name__=='__main__':
             seconds=duration.tm_sec).total_seconds()  # in seconds
     if not interval:
         ss_num = args.num  # number of screenshot
-        print(type(ss_num))
         interval = duration // ss_num
 
     if not ss_num:
